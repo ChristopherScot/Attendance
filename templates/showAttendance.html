@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+<table class="table table-striped table-bordered table-sm">
+	<thead>
+		<th scope="col"> Student</th>
+		<th scope="col"> Status</th>
+		<th scope="col"> Period</th>
+		<th scope="col"> Day</th>
+	</thead>
+	<tbody>
+	{{todayP1}}
+	{% for entry in today %}
+	<tr>
+		<td>{{entry['lastName']}}, {{entry['firstName']}}</td>
+		<td>{{entry['status'].capitalize()}}</td>
+		<td>{{entry['period']}}</td>
+		<td>{{entry['timestamp']}}</td>
+	</tr>
+	{% endfor %}
+
+	</tbody>
+</table>
+{% endblock %}
